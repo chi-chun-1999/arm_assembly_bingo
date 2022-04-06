@@ -1,0 +1,71 @@
+KEIL_PATH = C:\Users\User\Desktop\ARM251
+
+ARMCC = $(KEIL_PATH)\Bin\armcc.exe
+ARMASM = $(KEIL_PATH)\Bin\armasm.exe
+ARMAR = $(KEIL_PATH)\Bin\armar.exe
+ARMLINK = $(KEIL_PATH)\Bin\armlink.exe
+FROMELF = $(KEIL_PATH)\Bin\fromelf.exe
+
+#################################################
+# 編譯選項
+#################################################
+CFLAGS := -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork
+CMACRO :=
+ASMFLAGS := -CPU ARM6  -g #--apcs=interwork --pd "__MICROLIB SETA 1"
+LINKFLAGS := 
+MAP := --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+INFO := --info sizes --info totals --info unused --info veneers
+
+#--cpu Cortex-M3 *.o --library_type=microlib --strict --scatter "TEST.sct" 
+#--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+#--info sizes --info totals --info unused --info veneers 
+#--list ".\TEST.map" 
+#-o "TEST.axf" 
+
+TARGET = ./build/main
+OBJMAP := .\output\*.map
+OBJHTM := .\output\*.htm
+OBJAXF := .\output\*.axf
+
+
+OBJS = .\deps\swap\swap.o \
+       .\deps\divide\divide.o \
+       .\deps\random\rand.o \
+       .\deps\1darray\init_1dArray.o .\deps\1darray\set_1dArray.o .\deps\1darray\set_order_1dArray.o\
+       .\lib\bingo_shuffle_1darray.o main.o
+
+#INC += -I.\system\delay
+#INC += -I.\system\sys
+#INC += -I.\system\usart
+#INC += -I.\hardware\key
+#INC += -I.\hardware\led
+#INC += -I$(KEIL_PATH)\INC\St\STM32F10x
+#INC += -I$(KEIL_PATH)\RV31\INC
+INC += -I..\
+
+#%.o:%.c
+#	$(ARMCC) $(CFLAGS) $(INC) $(CMACRO) $< -o $@
+$(info INC is $(notdir $(CURDIR)))
+main: $(OBJS) 
+#armlink ../hello-1.o -Output $@
+	$(ARMLINK) $(LINKFLAGS) $^ -Output $(TARGET)
+	del $(OBJS)
+%.o: %.s
+	$(ARMASM) $(ASMFLAGS) $(INC) $< -o $@	
+
+#armasm hello-1.s -o hello-1.o
+
+
+#arm7:$(OBJS)
+#	$(ARMLINK) $(LINKFLAGS) --libpath "$(KEIL_PATH)\RV31\LIB" --scatter start.sct $(MAP) $(INFO) --list $(TARGET).map $^ -o $(TARGET).axf
+#	$(FROMELF) --bin -o $(TARGET).bin $(TARGET).axf
+#	$(FROMELF) --i32 -o $(TARGET).hex $(TARGET).axf
+#	del $(OBJHTM) $(OBJAXF) $(OBJS)
+
+#   若只是生成LIB庫，只需要以下一條命令就可以了 
+#	$(ARMAR) $(APPNAME).lib -r $(OBJS)
+		
+.PHONY : clean
+
+clean:
+	del *.o 

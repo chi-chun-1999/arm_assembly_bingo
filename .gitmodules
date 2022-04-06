@@ -1,0 +1,18 @@
+[submodule "deps/random"]
+	path = deps/random
+	url = git@gitlab.ical.tw:arm_assembly/base/random.git
+[submodule "deps/printf"]
+	path = deps/printf
+	url = git@gitlab.ical.tw:arm_assembly/base/printf.git
+[submodule "deps/divide"]
+	path = deps/divide
+	url = git@gitlab.ical.tw:arm_assembly/base/divide.git
+[submodule "deps/1darray"]
+	path = deps/1darray
+	url = git@gitlab.ical.tw:arm_assembly/base/1darray.git
+[submodule "deps/2darray"]
+	path = deps/2darray
+	url = git@gitlab.ical.tw:arm_assembly/base/2darray.git
+[submodule "deps/swap"]
+	path = deps/swap
+	url = git@gitlab.ical.tw:arm_assembly/base/swap.git
