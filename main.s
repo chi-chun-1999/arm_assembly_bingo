@@ -34,6 +34,7 @@ Main
 	BL 	bingo_shuffle_1darray
 
 
+
 ;	STMFD 	sp!,{r1-r8,LR}
 ;
 ;	MOV 	r2, r0 	;r2: address of 1darray

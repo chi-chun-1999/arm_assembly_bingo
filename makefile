@@ -40,13 +40,16 @@ BUILD_OBJS_TARGET= $(foreach n, $(OBJS),build\$(n))
 ###########################################
 #test_shuffle
 ###########################################
-
-TEST_TARGET1 = .\build\test\test_shuffle
+TEST_NAME = test_init_board
+TEST_TARGET1 = .\build\test\$(TEST_NAME)
 OBJS_TEST_TARGET1 = deps\swap\swap.o \
        deps\divide\divide.o \
        deps\random\rand.o \
-       deps\1darray\init_1dArray.o deps\1darray\set_1dArray.o deps\1darray\set_order_1dArray.o\
-       lib\bingo_shuffle_1darray.o test\test_shuffle.o
+       deps\printf\printf_dec.o deps\printf\printf_hex.o \
+       deps\1darray\init_1dArray.o deps\1darray\set_1dArray.o deps\1darray\set_order_1dArray.o deps\1darray\get_1dArray.o \
+       deps\2darray\init_2dArray.o deps\2darray\set_2dArray.o deps\2darray\get_2dArray.o \
+       lib\bingo_shuffle_1darray.o lib\bingo_init_board.o \
+       test\$(TEST_NAME).o
 
 BUILD_OBJS_TEST_TARGET1= $(foreach n, $(OBJS_TEST_TARGET1),build\$(n))
 
@@ -75,7 +78,7 @@ test_shuffle: $(OBJS_TEST_TARGET1)
 
 %.o: %.s
 	
-	if not exist build\$(@D) mkdir build\$(@D)
+	@if not exist build\$(@D) mkdir build\$(@D)
 	$(ARMASM) $(ASMFLAGS) $(INC) $< -o .\build\$@ 	
 	
 
@@ -95,4 +98,4 @@ test_shuffle: $(OBJS_TEST_TARGET1)
 .PHONY : clean
 
 clean:
-	del *.o 
+	del  $(BUILD_OBJS_TEST_TARGET1) $(BUILD_OBJS_TARGET)
