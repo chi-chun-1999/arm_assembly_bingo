@@ -31,9 +31,9 @@ bingo_shuffle_1darray
 	MOV 	r5, #4 	;4byte
 	MOV 	r6, #0 	;address index
 
-forLoop 
+ForLoop 
 	CMP 	r4, r3
-	BGE 	endfunc
+	BGE 	EndFunc
 
 	;int r = rand()%(25-i)+i
 	BL 	rand 	;r0 = rand()
@@ -50,10 +50,10 @@ forLoop
 	BL 	swap
 
 	ADD 	r4, r4, #1
-	BL 	forLoop
+	BL 	ForLoop
 		
 
-endfunc
+EndFunc
 	LDMFD 	sp!,{r1-r8,PC}
 
 	END

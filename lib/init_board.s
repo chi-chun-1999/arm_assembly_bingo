@@ -1,6 +1,6 @@
-;
-;
-;
+
+
+
 ;init_board(2dArray[ROW][COL])
 ;{
 ;	int array[25];
@@ -9,18 +9,19 @@
 ;	{
 ;		array[i]=i+1;
 ;	}
+; 	
+; 	bingo_shuffle_1darray();
 ;
-;	for(int i=0;i<25;i++)
-;	{
-;		int r = rand()%(25-i)+i;
-;		int tmp = array[i];
-;		array[i]=array[r];
-;		array[r]=tmp;
-;	}
-;
-;
-;	
-;
+;	int k = 0;
+; 	
+; 	for(int i=0; i < ROW ; i++)
+; 	{
+;		for(int j=0; j < COL;j++)
+;		{
+;			2dArray[i][j]=array[k];
+;			k++;
+;		}
+; 	}
 ;}
 
 
@@ -37,12 +38,12 @@ init_board
 	MOV 	r1,#0
 
 	
-SET 	BL 	set_1dArray
+Set	BL 	set_1dArray
 	ADD 	r1,r1,#1
 	ADD 	r2,r2,#1
 	SUB 	r4,r4,#1
 	CMP 	r4,#0
-	BNE 	SET
+	BNE 	Set
 
 	MOV 	r0,r3
 	LDMFD 	sp!,{r1-r4,PC}

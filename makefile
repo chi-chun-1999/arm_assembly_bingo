@@ -1,3 +1,5 @@
+
+
 KEIL_PATH = C:\Users\User\Desktop\ARM251
 
 ARMCC = $(KEIL_PATH)\Bin\armcc.exe
@@ -22,11 +24,10 @@ INFO := --info sizes --info totals --info unused --info veneers
 #--list ".\TEST.map" 
 #-o "TEST.axf" 
 
-TARGET = ./build/main
+TARGET = ./build/main 
 OBJMAP := .\output\*.map
 OBJHTM := .\output\*.htm
 OBJAXF := .\output\*.axf
-
 
 OBJS = .\deps\swap\swap.o \
        .\deps\divide\divide.o \
@@ -34,6 +35,23 @@ OBJS = .\deps\swap\swap.o \
        .\deps\1darray\init_1dArray.o .\deps\1darray\set_1dArray.o .\deps\1darray\set_order_1dArray.o\
        .\lib\bingo_shuffle_1darray.o main.o
 
+BUILD_OBJS_TARGET= $(foreach n, $(OBJS),build\$(n))
+
+###########################################
+#test_shuffle
+###########################################
+
+TEST_TARGET1 = .\build\test\test_shuffle
+OBJS_TEST_TARGET1 = deps\swap\swap.o \
+       deps\divide\divide.o \
+       deps\random\rand.o \
+       deps\1darray\init_1dArray.o deps\1darray\set_1dArray.o deps\1darray\set_order_1dArray.o\
+       lib\bingo_shuffle_1darray.o test\test_shuffle.o
+
+BUILD_OBJS_TEST_TARGET1= $(foreach n, $(OBJS_TEST_TARGET1),build\$(n))
+
+
+all : main test_shuffle
 #INC += -I.\system\delay
 #INC += -I.\system\sys
 #INC += -I.\system\usart
@@ -45,13 +63,22 @@ INC += -I..\
 
 #%.o:%.c
 #	$(ARMCC) $(CFLAGS) $(INC) $(CMACRO) $< -o $@
+
 $(info INC is $(notdir $(CURDIR)))
 main: $(OBJS) 
 #armlink ../hello-1.o -Output $@
-	$(ARMLINK) $(LINKFLAGS) $^ -Output $(TARGET)
-	del $(OBJS)
+	$(ARMLINK) $(LINKFLAGS)  $(BUILD_OBJS_TARGET) -Output $(TARGET)
+
+test_shuffle: $(OBJS_TEST_TARGET1) 
+#armlink ../hello-1.o -Output $@
+	$(ARMLINK) $(LINKFLAGS) $(BUILD_OBJS_TEST_TARGET1) -Output $(TEST_TARGET1)
+
 %.o: %.s
-	$(ARMASM) $(ASMFLAGS) $(INC) $< -o $@	
+	
+	if not exist build\$(@D) mkdir build\$(@D)
+	$(ARMASM) $(ASMFLAGS) $(INC) $< -o .\build\$@ 	
+	
+
 
 #armasm hello-1.s -o hello-1.o
 
