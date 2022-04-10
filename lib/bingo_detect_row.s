@@ -36,6 +36,9 @@
 ;
 ; return r0:rows_static
 ;***************************
+; local variable:
+; fp-4: rows_static
+ 
 
 
 	AREA  BingoDetectRow,CODE, READWRITE ; name this block of code
@@ -44,73 +47,63 @@ ROW_LENGTH 	EQU 5
 COL_LENGTH 	EQU 5
 
 	EXPORT 	bingo_detect_row
+	IMPORT 	get_2dArray
 
 bingo_detect_row
-	STMFD 	sp!, {FP,LR}
+	STMFD 	sp!, {r1,FP,LR}
 
 	MOV 	fp, sp
-	MOV 	r4, r0 	; r4: &2dArray[0]
-	MOV 	r1, #ARRAY_LENGTH
-	BL 	init_1dArray ;r0:  &array[0]
+	MOV 	r1, r0 	; r1: &2dArray[0][0]
 	MOV 	r0, #0
+
 	STMFD	sp!, {r0} ;int k=0
 
-	STMFD 	sp!,{r1-r8}
+	STMFD 	sp!,{r2-r8}
 
-
-	SUB 	r0, fp, #100
-	MOV 	r1, #ARRAY_LENGTH 
-	MOV 	r2, #1
-	BL 	set_order_1dArray	
-
-	SUB 	r0, fp, #100
-	MOV 	r1, #ARRAY_LENGTH
-	BL 	bingo_shuffle_1darray
-
-
-	MOV 	r5, #0 		;for loop int i = 0
+	MOV 	r2, #0 	;Loop1 int i=0;
 
 Loop1
-	ADD 	r5, r5, #1
-	MOV 	r6, #0 		;for loop int j = 0
-	CMP 	r5, #5
-	BGT 	Return
+	CMP 	r2, #5
+	BGE 	EndLoop1
+	MOV 	r3, #0 	;Loop1 int per_row_static=0;
+ 	MOV 	r4, #0 	;Loop2 int j=0;
 
-Loop2
-	CMP 	r6, #5
-	BGE 	Loop1
+Loop2 
+	CMP 	r4, #5
+	BGE 	EndLoop2
 
-	MOV 	r0, r4  	;let r0 = &array[0]
-	STR 	r0, [sp, #-12] 	
-
-	;2dArray[i][j]=array[k]
-	SUB 	r0, fp, #100
-	LDR 	r1, [fp, #-104] ;get value of k from memory
-	BL 	get_1dArray 	;get array[k]
+	STR 	r1, [sp, #-12]
+	MOV 	r0, r2
 	STR 	r0, [sp, #-16]
-
-	SUB 	r0, r5, #1
+	MOV 	r0, r4
 	STR 	r0, [sp, #-20]
-	STR 	r6, [sp, #-24]
-	MOV 	r0, #5
+	MOV 	r0, #ROW_LENGTH
+	STR 	r0, [sp, #-24]
+	MOV 	r0, #COL_LENGTH
 	STR 	r0, [sp, #-28]
-	MOV 	r0, #5
-	STR 	r0, [sp, #-32]
-	ADD 	r6, r6, #1
-	BL 	set_2dArray
+	BL 	get_2dArray
 
-	;k++
-	LDR 	r1, [fp, #-104] ;get value of k from memory
-	ADD 	r1, r1, #1
-	STR 	r1, [fp, #-104] ;get value of k from memory
+	CMP 	r0, #-1
+	BNE 	EndLoop2
+	ADD 	r3, r3, #1
+	ADD 	r4, r4, #1
+	B 	Loop2
 
-	BL 	Loop2
+EndLoop2
+	ADD 	r2, r2, #1
+	CMP 	r3, #ROW_LENGTH
+	BNE 	Loop1
+	LDR 	r0,[fp, #-4]
+	ADD 	r0, r0, #1
+	STR 	r0,[fp, #-4]
+	B 	Loop1
 
-Return
-	LDMFD 	sp!,{r1-r8}
+EndLoop1
+	LDMFD 	sp!,{r2-r8}
+	LDR 	r0,[fp, #-4]
 
 	MOV 	sp, fp
-	LDMFD 	sp!, {FP,PC}
+	LDMFD 	sp!, {r1,FP,PC}
 
 	END
 
