@@ -68,7 +68,7 @@ Loop2
 	STR 	r1, [sp, #-12]
 	MOV 	r0, r4
 	STR 	r0, [sp, #-16]
-	MOV 	r0, #COL_LENGTH
+	MOV 	r0, #4
 	SUB 	r0, r0, r4
 	STR 	r0, [sp, #-20]
 	MOV 	r0, #ROW_LENGTH

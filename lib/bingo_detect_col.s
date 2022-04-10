@@ -1,6 +1,6 @@
 ;===============================
 ; in c:
-;int bingo_detect_row(int 2dArray[ROW][COL])
+;int bingo_detect_line(int 2dArray[ROW][COL])
 ;{
 ;	int cols_static = 0;
 ;
