@@ -40,7 +40,7 @@ BUILD_OBJS_TARGET= $(foreach n, $(OBJS),build\$(n))
 ###########################################
 #test_shuffle
 ###########################################
-TEST_NAME = test_init_board
+TEST_NAME = test_set_minus_1
 TEST_TARGET1 = .\build\test\$(TEST_NAME)
 OBJS_TEST_TARGET1 = deps\swap\swap.o \
        deps\divide\divide.o \
@@ -48,13 +48,13 @@ OBJS_TEST_TARGET1 = deps\swap\swap.o \
        deps\printf\printf_dec.o deps\printf\printf_hex.o \
        deps\1darray\init_1dArray.o deps\1darray\set_1dArray.o deps\1darray\set_order_1dArray.o deps\1darray\get_1dArray.o \
        deps\2darray\init_2dArray.o deps\2darray\set_2dArray.o deps\2darray\get_2dArray.o \
-       lib\bingo_shuffle_1darray.o lib\bingo_init_board.o \
+       lib\bingo_shuffle_1darray.o lib\bingo_init_board.o  lib\bingo_set_minus_1.o\
        test\$(TEST_NAME).o
 
 BUILD_OBJS_TEST_TARGET1= $(foreach n, $(OBJS_TEST_TARGET1),build\$(n))
 
 
-all : main test_shuffle
+all : main $(TEST_NAME)
 #INC += -I.\system\delay
 #INC += -I.\system\sys
 #INC += -I.\system\usart
@@ -72,7 +72,7 @@ main: $(OBJS)
 #armlink ../hello-1.o -Output $@
 	$(ARMLINK) $(LINKFLAGS)  $(BUILD_OBJS_TARGET) -Output $(TARGET)
 
-test_shuffle: $(OBJS_TEST_TARGET1) 
+$(TEST_NAME): $(OBJS_TEST_TARGET1) 
 #armlink ../hello-1.o -Output $@
 	$(ARMLINK) $(LINKFLAGS) $(BUILD_OBJS_TEST_TARGET1) -Output $(TEST_TARGET1)
 
