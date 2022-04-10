@@ -1,55 +1,52 @@
 ;===============================
 ; in c:
-;init_board(2dArray[ROW][COL])
+;int bingo_detect_row(int 2dArray[ROW][COL])
 ;{
-;	int array[25];
+;	int rows_static = 0;
 ;
-;	for(int i=0;i<25;i++)
+;	for(int i=0; i < ROW; i++)
 ;	{
-;		array[i]=i+1;
-;	}
-; 	
-; 	bingo_shuffle_1darray();
+;		int per_row_static=0;
 ;
-;	int k = 0;
-; 	
-; 	for(int i=0; i < ROW ; i++)
-; 	{
-;		for(int j=0; j < COL;j++)
+;		for(int j = 0; j < COL ; j++)
 ;		{
-;			2dArray[i][j]=array[k];
-;			k++;
+;			if(2dArray[i][j]==-1)
+;			{
+;				per_row_static++;
+;			}
+;			else
+;			{
+;				break;
+;			}
 ;		}
-; 	}
+;
+;		if(per_row_static==5)
+;		{
+;			rows_static++;
+;
+;		}
+;	}
+;
+;	return rows_static;
 ;}
 ;===============================
 ;
-;bingo_init_board(2dArray,)
+;bingo_detect_row(2dArray)
 ; r0: &2dArray[0][0]
 ;
-;
+; return r0:rows_static
 ;***************************
-;local variable
-;
-; fp-100: int array[25]
-; fp-104: int k
-;
 
 
-	AREA  BingoInitBoard,CODE, READWRITE ; name this block of code
+	AREA  BingoDetectRow,CODE, READWRITE ; name this block of code
 
-ARRAY_LENGTH 	EQU 25
+ROW_LENGTH 	EQU 5
+COL_LENGTH 	EQU 5
 
-	IMPORT 	set_order_1dArray
-	IMPORT 	set_2dArray
-	IMPORT 	init_1dArray
-	IMPORT 	get_1dArray
-	IMPORT 	bingo_shuffle_1darray
-	EXPORT 	bingo_init_board
+	EXPORT 	bingo_detect_row
 
-bingo_init_board
-
-	STMFD 	sp!, {r4,FP,LR}
+bingo_detect_row
+	STMFD 	sp!, {FP,LR}
 
 	MOV 	fp, sp
 	MOV 	r4, r0 	; r4: &2dArray[0]
@@ -113,7 +110,7 @@ Return
 	LDMFD 	sp!,{r1-r8}
 
 	MOV 	sp, fp
-	LDMFD 	sp!, {r4,FP,PC}
+	LDMFD 	sp!, {FP,PC}
 
 	END
 
