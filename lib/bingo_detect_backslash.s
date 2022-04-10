@@ -1,15 +1,16 @@
 ;===============================
 ; in c:
-;int bingo_detect_slash(int 2dArray[ROW][COL])
+;int bingo_detect_backslash(int 2dArray[ROW][COL])
 ;{
-;	int slash_static = 0;
+;	int backslash_static = 0;
+;	int per_backslash_static = 0;
 ;
 ;
 ;	for(int j = 0; j < COL ; j++)
 ;	{
-;		if(2dArray[i][i]==-1)
+;		if(2dArray[j][COL-j]==-1)
 ;		{
-;			per_slash_static++;
+;			per_backslash_static++;
 ;		}
 ;		else
 ;		{
@@ -17,35 +18,35 @@
 ;		}
 ;	}
 ;
-;	if(per_slah_static==5)
+;	if(per_backslash_static==5)
 ;	{
-;		slash_static++;
+;		backslash_static++;
 ;
 ;	}
 ;
-;	return slash_static;
+;	return backslash_static;
 ;}
 ;===============================
 ;
-;bingo_detect_slash(2dArray)
+;bingo_detect_backslash(2dArray)
 ; r0: &2dArray[0][0]
 ;
 ; return r0:rows_static
 ;***************************
 ; local variable:
-; fp-4: slash_static
+; fp-4: backslash_static
  
 
 
-	AREA  BingoDetectSlash,CODE, READWRITE ; name this block of code
+	AREA  BingoDetectBackSlash,CODE, READWRITE ; name this block of code
 
 ROW_LENGTH 	EQU 5
 COL_LENGTH 	EQU 5
 
-	EXPORT 	bingo_detect_slash
+	EXPORT 	bingo_detect_backslash
 	IMPORT 	get_2dArray
 
-bingo_detect_slash
+bingo_detect_backslash
 	STMFD 	sp!, {r1,FP,LR}
 
 	MOV 	fp, sp
@@ -57,7 +58,7 @@ bingo_detect_slash
 	STMFD 	sp!,{r2-r8}
 
 
-	MOV 	r3, #0 	;Loop1 int per_slash_static=0;
+	MOV 	r3, #0 	;Loop1 int per_backslash_static=0;
  	MOV 	r4, #0 	;Loop2 int j=0;
 
 Loop2 
@@ -67,7 +68,8 @@ Loop2
 	STR 	r1, [sp, #-12]
 	MOV 	r0, r4
 	STR 	r0, [sp, #-16]
-	MOV 	r0, r4
+	MOV 	r0, #COL_LENGTH
+	SUB 	r0, r0, r4
 	STR 	r0, [sp, #-20]
 	MOV 	r0, #ROW_LENGTH
 	STR 	r0, [sp, #-24]

@@ -25,6 +25,9 @@ ARRAY_LENGTH EQU 25
 	IMPORT 	bingo_detect_slash
 	IMPORT 	tbingo_set_slash_minus
 
+	IMPORT 	bingo_detect_backslash
+	IMPORT 	tbingo_set_backslash_minus
+
 Main
 	MOV 	fp,sp
 	MOV 	r0, #0 
@@ -51,25 +54,24 @@ Main
 
 	MOV 	r4, #16
 
-	SUB 	r0, fp, #100
-	MOV 	r1, #0
-	BL 	tbingo_set_col_minus
+	;SUB 	r0, fp, #100
+	;MOV 	r1, #0
+	;BL 	tbingo_set_col_minus
+
+	;SUB 	r0, fp, #100
+	;MOV 	r1, #1
+	;BL 	tbingo_set_col_minus
+
+	;SUB 	r0, fp, #100
+	;MOV 	r1, #2
+	;BL 	tbingo_set_col_minus
+
+	;SUB 	r0, fp, #100
+	;MOV 	r1, #3
+	;BL 	tbingo_set_col_minus
 
 	SUB 	r0, fp, #100
-	MOV 	r1, #1
-	BL 	tbingo_set_col_minus
-
-	SUB 	r0, fp, #100
-	MOV 	r1, #2
-	BL 	tbingo_set_col_minus
-
-	SUB 	r0, fp, #100
-	MOV 	r1, #3
-	BL 	tbingo_set_col_minus
-
-	SUB 	r0, fp, #100
-	MOV 	r1, #4
-	BL 	tbingo_set_col_minus
+	BL 	tbingo_set_backslash_minus
 
 	SUB 	r0, fp, #100
 	BL 	bingo_detect_col
@@ -81,6 +83,10 @@ Main
 
 	SUB 	r0, fp, #100
 	BL 	bingo_detect_slash
+	BL 	printf_dec
+
+	SUB 	r0, fp, #100
+	BL 	bingo_detect_backslash
 	BL 	printf_dec
 
 	SWI 	SWI_Exit
