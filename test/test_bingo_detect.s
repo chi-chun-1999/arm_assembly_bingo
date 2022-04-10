@@ -18,6 +18,9 @@ ARRAY_LENGTH EQU 25
 	IMPORT 	bingo_detect_row
 	IMPORT 	tbingo_set_row_minus
 
+	IMPORT 	bingo_detect_col
+	IMPORT 	tbingo_set_col_minus
+
 
 Main
 	MOV 	fp,sp
@@ -46,21 +49,23 @@ Main
 	MOV 	r4, #16
 
 	SUB 	r0, fp, #100
-	MOV 	r1, #4
-	BL 	tbingo_set_row_minus
+	MOV 	r1, #0
+	BL 	tbingo_set_col_minus
 
 	SUB 	r0, fp, #100
 	MOV 	r1, #1
-	BL 	tbingo_set_row_minus
+	BL 	tbingo_set_col_minus
 
 	SUB 	r0, fp, #100
 	MOV 	r1, #2
 	BL 	tbingo_set_row_minus
 
+	SUB 	r0, fp, #100
+	BL 	bingo_detect_col
+	BL 	printf_dec
 
 	SUB 	r0, fp, #100
 	BL 	bingo_detect_row
-
 	BL 	printf_dec
 
 	SWI 	SWI_Exit
