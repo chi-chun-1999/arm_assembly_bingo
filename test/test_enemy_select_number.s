@@ -3,7 +3,6 @@
 ;local variable
 ;
 ; fp-100: int select_board[25]
-; fp-200: int extract_select_board[25]
 ;
 	AREA  Program,CODE, READONLY ; name this block of code
 SWI_Exit EQU 0x11 ; tidy finish
@@ -23,7 +22,7 @@ ARRAY_LENGTH EQU 25
 	IMPORT 	set_1dArray
 	IMPORT 	init_1dArray
 	IMPORT 	printf_dec
-	IMPORT 	bingo_extract_not_selected_num
+	IMPORT 	bingo_enemy_select_number
 
 
 Main
@@ -52,16 +51,30 @@ Main
 	SUB 	r0, fp, #100
 	MOV 	r1, #2
 	MOV 	r2, #-1
-
 	BL 	set_1dArray
-	;init extract_select_board
-	MOV 	r0, #0 
-	MOV 	r1, #ARRAY_LENGTH
-	BL 	init_1dArray
 
 	SUB 	r0, fp, #100
-	SUB 	r1, fp, #200
-	BL 	bingo_extract_not_selected_num
+	MOV 	r1, #ARRAY_LENGTH
+	MOV 	r2, #-1 
+	BL 	set_all_1dArray
+
+	SUB 	r0, fp, #100
+	MOV 	r1, #2
+	MOV 	r2, #1
+	BL 	set_1dArray
+
+	SUB 	r0, fp, #100
+	MOV 	r1, #4
+	MOV 	r2, #2
+	BL 	set_1dArray
+
+	SUB 	r0, fp, #100
+	MOV 	r1, #3
+	MOV 	r2, #3
+	BL 	set_1dArray
+
+	SUB 	r0, fp, #100
+	BL 	bingo_enemy_select_number
 
 	BL 	printf_dec
 
@@ -70,3 +83,4 @@ Main
 	SWI 	SWI_Exit
 
 	END
+

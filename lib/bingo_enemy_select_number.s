@@ -1,29 +1,32 @@
 ;===============================
 ; in c:
-bingo_enemy_select_number(int select_board[25])
-{
-	int randon_value=randon()%25+1;
-
-	for(int i = 0 ; i < 25; i++)
-	{
-		if(elect)
-
-
-	}
-
-
-}
+;int bingo_enemy_select_number(int select_board[25])
+;{
+;	int extract_select_board[25];
+;	int extract_select_board_num=bingo_extract_not_selected_num(select_board,extract_select_board);
+;	if(extract_select_board_num==0)
+;	{
+;		return -1;
+;	}
+;	
+;	int randon_value=randon()%extract_select_board_num+1;
+;
+;	int enemy_select_number=extract_select_board[randon_value];
+;
+;	return enemy_select_number;
+;}
 ;===============================
 ;
-;bingo_init_board(2dArray,)
-; r0: &2dArray[0][0]
+;bingo_enemy_select_number(select_board)
+; r0: &select_board[0]
 ;
-;
+; return: r0: -1(when enemy_select_number=0) or enemy_select_number
 ;***************************
 ;local variable
 ;
 ; fp-100: int array[25]
-; fp-104: int k
+; fp-104: int extract_select_board_num
+; fp-108: int randon_value
 ;
 
 
@@ -36,9 +39,12 @@ ARRAY_LENGTH 	EQU 25
 	IMPORT 	init_1dArray
 	IMPORT 	get_1dArray
 	IMPORT 	bingo_shuffle_1darray
-	EXPORT 	bingo_init_board
+	IMPORT 	rand
+	IMPORT 	__rt_udiv
+	IMPORT 	bingo_extract_not_selected_num
+	EXPORT 	bingo_enemy_select_number
 
-bingo_init_board
+bingo_enemy_select_number
 
 	STMFD 	sp!, {r4,FP,LR}
 
@@ -47,58 +53,35 @@ bingo_init_board
 	MOV 	r1, #ARRAY_LENGTH
 	BL 	init_1dArray ;r0:  &array[0]
 	MOV 	r0, #0
-	STMFD	sp!, {r0} ;int k=0
+	STMFD	sp!, {r0} ;int extract_select_board_num=0
+	MOV 	r0, #0
+	STMFD	sp!, {r0} ;int randon_value=0
 
 	STMFD 	sp!,{r1-r8}
 
+	MOV 	r0, r4
+	SUB 	r1, fp, #100
+	BL 	bingo_extract_not_selected_num
+
+	CMP 	r0, #0 
+	BEQ 	ReturnError
+
+	STR 	r0, [fp, #-104]
+	MOV 	r1, r0
+	BL 	rand
+	BL 	__rt_udiv
+
+	STR 	r1, [fp, #-108]
+
 
 	SUB 	r0, fp, #100
-	MOV 	r1, #ARRAY_LENGTH 
-	MOV 	r2, #1
-	BL 	set_order_1dArray	
+	LDR 	r5, [r0, r1, LSL#2]; 	r5: enemy_select_number=extract_select_board[randon_value]
 
-	SUB 	r0, fp, #100
-	MOV 	r1, #ARRAY_LENGTH
-	BL 	bingo_shuffle_1darray
+	MOV 	r0, r5
+	B 	Return
 
-
-	MOV 	r5, #0 		;for loop int i = 0
-
-Loop1
-	ADD 	r5, r5, #1
-	MOV 	r6, #0 		;for loop int j = 0
-	CMP 	r5, #5
-	BGT 	Return
-
-Loop2
-	CMP 	r6, #5
-	BGE 	Loop1
-
-	MOV 	r0, r4  	;let r0 = &array[0]
-	STR 	r0, [sp, #-12] 	
-
-	;2dArray[i][j]=array[k]
-	SUB 	r0, fp, #100
-	LDR 	r1, [fp, #-104] ;get value of k from memory
-	BL 	get_1dArray 	;get array[k]
-	STR 	r0, [sp, #-16]
-
-	SUB 	r0, r5, #1
-	STR 	r0, [sp, #-20]
-	STR 	r6, [sp, #-24]
-	MOV 	r0, #5
-	STR 	r0, [sp, #-28]
-	MOV 	r0, #5
-	STR 	r0, [sp, #-32]
-	ADD 	r6, r6, #1
-	BL 	set_2dArray
-
-	;k++
-	LDR 	r1, [fp, #-104] ;get value of k from memory
-	ADD 	r1, r1, #1
-	STR 	r1, [fp, #-104] ;get value of k from memory
-
-	BL 	Loop2
+ReturnError 
+	MOV 	r0, #-1
 
 Return
 	LDMFD 	sp!,{r1-r8}
