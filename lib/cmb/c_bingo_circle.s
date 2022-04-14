@@ -1,3 +1,4 @@
+
 ;==============================================
 ;
 ; ui_draw_all_board(int &myboard[0][0],int &enemyboard[0][0], int detect_num)
@@ -38,6 +39,7 @@ c_bingo_circle
 	LDMFD 	sp!,{r0-r8,pc}
 
 	END
+
 
 
 

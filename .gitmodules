@@ -22,3 +22,6 @@
 [submodule "deps/read_file"]
 	path = deps/read_file
 	url = git@gitlab.ical.tw:arm_assembly/base/read_file.git
+[submodule "deps/scanf"]
+	path = deps/scanf
+	url = git@gitlab.ical.tw:arm_assembly/base/scanf.git
