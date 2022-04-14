@@ -5,7 +5,7 @@
 ; ui_draw_circle(int relative_x, int relative_y)
 ;
 ; r0: relative_x
-; r0: relative_y
+; r1: relative_y
 
 
 
@@ -32,8 +32,8 @@ ui_draw_circle
 	MOV 	r1, #47
 	BL 	cursor_set_color
 	
-	MOV 	r0, r6
-	MOV 	r1, r5
+	MOV 	r0, r6 	;up
+	MOV 	r1, r5 	;down
 	BL 	cursor_relative_move
 
 	MOV 	r0, #'-'
