@@ -32,11 +32,13 @@ ui_draw_circle
 	MOV 	r1, #47
 	BL 	cursor_set_color
 	
-	MOV 	r0, r5
-	MOV 	r1, r6
+	MOV 	r0, r6
+	MOV 	r1, r5
 	BL 	cursor_relative_move
 
-	MOV 	r0, #'X'
+	MOV 	r0, #'-'
+	SWI 	&0
+	MOV 	r0, #'-'
 	SWI 	&0
 	BL 	cursor_set_none
 

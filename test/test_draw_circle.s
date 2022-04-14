@@ -14,6 +14,7 @@ read_only  EQU 1
 	IMPORT 	ui_draw_number
 	IMPORT 	bingo_init_board
 	IMPORT 	init_2dArray
+	IMPORT 	c_bingo_circle
 
 	ENTRY 	; mark first instruction
 
@@ -64,11 +65,11 @@ Main
 	SUB 	r1, fp, #200
 	BL 	ui_draw_all_board
 
-	MOV 	r0, #11
-	MOV 	r1, #5
-	BL 	ui_draw_circle
 
-
+	SUB 	r0, fp, #100
+	SUB 	r1, fp, #200
+	MOV 	r2, #5
+	BL 	c_bingo_circle
 
 	
 	SWI 	SWI_Exit

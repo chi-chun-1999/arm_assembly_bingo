@@ -51,7 +51,7 @@ Main
 	MOV 	r4, #16
 
 	SUB 	r0, fp, #100
-	MOV 	r1, #25
+	MOV 	r1, #5
 	BL 	bingo_set_minus_1
 
 
