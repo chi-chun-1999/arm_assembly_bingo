@@ -68,13 +68,13 @@ Loop2
 	STR 	r0, [sp, #-28]
 	BL 	get_2dArray
 
-	LDR 	r1, [fp, #-8]
-	MOV 	r7, #2
+	LDR 	r1, [fp, #-4]
+	MOV 	r7, #3
 	MUL 	r3, r5, r7
 	ADD 	r1, r1, r3
 	 	
-	LDR 	r2, [fp, #-4]
-	MOV 	r7, #3
+	LDR 	r2, [fp, #-8]
+	MOV 	r7, #2
 	MUL 	r3, r6, r7
 	ADD 	r2, r2, r3
 	BL 	ui_draw_number

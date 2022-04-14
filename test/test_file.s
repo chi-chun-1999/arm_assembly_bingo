@@ -9,7 +9,9 @@ write_only EQU 4 ; mode 4 = open to write
 read_only  EQU 1
 
 	IMPORT 	read_file
-	IMPORT 	ui_draw_board
+	IMPORT 	ui_draw_all_board
+	IMPORT 	ui_draw_circle
+	IMPORT 	ui_draw_number
 	IMPORT 	bingo_init_board
 	IMPORT 	init_2dArray
 
@@ -59,14 +61,15 @@ Main
 	BL 	bingo_init_board
 
 	SUB 	r0, fp, #100
-	MOV 	r1, #11
-	MOV 	r2, #5
-	BL 	ui_draw_board
+	SUB 	r1, fp, #200
+	BL 	ui_draw_all_board
 
-	SUB 	r0, fp, #200
-	MOV 	r1, #48
-	MOV 	r2, #5
-	BL 	ui_draw_board
+	;MOV 	r0, #3
+	;MOV 	r1, #11
+	;MOV 	r2, #5
+	;BL 	ui_draw_number
+
+
 
 	
 	SWI 	SWI_Exit
