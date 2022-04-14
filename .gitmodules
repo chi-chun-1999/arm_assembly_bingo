@@ -16,3 +16,9 @@
 [submodule "deps/swap"]
 	path = deps/swap
 	url = git@gitlab.ical.tw:arm_assembly/base/swap.git
+[submodule "deps/cursor"]
+	path = deps/cursor
+	url = git@gitlab.ical.tw:arm_assembly/base/cursor.git
+[submodule "deps/read_file"]
+	path = deps/read_file
+	url = git@gitlab.ical.tw:arm_assembly/base/read_file.git

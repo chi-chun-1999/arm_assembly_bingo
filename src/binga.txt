@@ -1,0 +1,30 @@
+[0m[47mMMMMMMMMMMMMMMMMMMMMMMMM-MMMMMMMMMMN[44mO[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM[40m
+[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW[44mo;O[40mM[47mWWMWMWWMMMMMMM-MMMMMMMM[44mKk[47mWMMMMMMMMMM[40m
+[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM[44mk;;,d[40mN[47mNNXNNWM[46mK[44md[47mNMMMMMMMMMN[44mx:lk[47mMMMMMMMMMMM[40m
+[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMM--XN[46mO[44ml;[46ml[44m:'k[47mNKXKNX[44mdc;l[47mWWWWMMW[44m0o;,lo[46mK[47mMMMMMMMMMMM[40m
+[47mMMMM--MMMMMMMMMMMMMMW[44m00[47mXWWXNKNNK0[44m;;[46md[43mX0[46mc[44m,d[47mOXO[44md;c:,;l[47mXWN[44mKx',:;lod[47mMMMMMMMMMMMM[40m
+[47mWMM--MMMMMMMMMMMMMWWM[44ml;;o[47m0000K0k[44m,.c[42mc[43mOKK[42mo[44m;ll;',:,','oxl'c[40m,[43m0[44m:looO[47mMMMMMMMMMMMW[40m
+[47mMMMMMMMMMMMMMMMMMMMM[46mK[44ml::;[42mo[44moc[47mK0O[44md.,[47mWN[46md[43ml0X[42m0[44ml''''[46md[42mo[44m,';:,[46md[47mX[44mO[43mc[42m0[44mlllcX[47mMMMMMMMMMMMW[40m
+[47mMMMMMMMMMMMMMMMMWNWN[44ml;;:[42md[43mXK[42mk[46mc[44mcc'.0[47mMM[40mM[47mN[46mo[43moKK[40m,[44m:[47mN[44mk[43mlK[42mx[44m.;[46mx[47mN[40mW[47mW[46m:[43m0[42mk[44mlc::kkxkOOOkxdk[47mMM[40m
+[47mMMMMWM[44mcldxOK[46mX[47mMMMMMMM[44m;,''[42mk[43mX[40m;[42ml[43md[42m0o[47m'[44m:[47mWMMMM[40mM[47mX[46ml[43mc[44md[47mWMM[46m0[42m:l[46mO[47mW[40mM[47mMM[44mK[40m:[43mX[42mc[47m.[45m,;[44m;';coolc:dK[47mMMM[40m
+[47mMMMMMM[44mOooooool;clxdxc;;[46mc[43mXk[44mc[47mWK[46mo[43mo[40m;[44mK[47mMMMMMMMMNMMNX[40mW[47mNMM0[41mxlll[43mlx[40m:[41m.,,;[42mkOx[44mlcck[47mMMMMMM[40m
+[47mMMMMMM[40mM[44mKc:::[46mo[42m0l[47m.[44md[46mK[47mO[46mxo[44mo:[42mod[40m;[44mK[47mK[41mxdl[44mo[47mMWKWWK0xM0[41ml:;:lk[47mK'[41m,,,,,:[44mc[47m.[41m','[42mkk[44ml:l0[47mWMMMMMMM[40m
+[47mMMMMMMMMX[44mc:;;[46ml[43m0d[40m [44mc[47mN[40mMW[47m00;;;[45m:[40m.[41m:;,[47m;[41mc;[47m;[44m:[41m.;,:[46mc[41m.,,,;:[44mx[47m.[41m,,',[40m'[41m:,[47m; [41m,,[44m';;;d[47mMMMMMMMMMM[40m
+[47mMMMMMMMMMW[44mdcccl[42mO[43m0[40m'[47m.[41m:;:;,,[47m;;..11[40m [41m;,[47m;.[41m.,,[47m.[41m.;,[47m;[44mxl[47mO;1[41m,'[47mx[44mX;[41m.,.[47m;[41m,'[44m';,;:cxK[47mMMMMMMM[40m
+[47mMMMMMMMMMMM[44m0lc:;[42md[43mK[40m.[41m,,,'';,[47m; [41m,,.[40m [41m;,,[47m;[41m.,,[47m1[41m,,,[47m:[41m;;:;[47m1[41m,;[47mMW[44m;[41m.'[47ml[44mll[47mxXO[44mdl:,cc:lkX[47mMMM[40m
+[47mMMMMMMMMMMM[44m0:;;;,[46m;[40m [41m;,,[47m.[41m',:[44mk[47m [41m;,.[40m [41m,,,'.,'[47m1[41m,,[44m;[47m ;;[41m,.[47m1[41m,,k[47mx[41m.'[47m'[41m,;;,[46mxo[47m;.[40m.[44m;;;;;;;:d[46mX[40m
+[47mMMMMMMM[44mXkl:;;;:,;o[47m [41m;,,,;';;[40m [41m;,[47m.[41m.,,,;,,'[47m1[41m:,,[45ml[41m;',;[40m.[41mc:;;;[44mxc[40m,, [47m [44m..,cc:;;:ldkK[46mN[47mW[40m
+[47mMMMM[44m0dc;;::cl;'x[47mN[44mO[40m [41m;,,'',,'[40m.[41m,,[47m.[41m.,,[40m.[47m;[41m,,.[44m'[40m.[41m::;,[47mc[41m;;[44md,[40m:[46mlx[47mW[40mM[47mWWN[44m:';;:ck0[46mX[47mMMMMMMMM[40m
+[47mN[44mOo:;;:clloo[42mxx[40m,. [47m.[40m [41m;,.[47m;;[41m;'[47m'[41m.,,[47m.[41m.,,[47m.[40m.[47m;[41m,c[44mKdcc[46md[47mXM[41m;;[46m0[47m0XWWMMMMMW[44mx,c:cx[47mMMMMMMMMMM[40m
+[47mWN[44mK0kkxxol:;:ccl[46mlc[40m [41m,,,,,,[47mk[44mc[41m.,,[47m.[41m.,:[44mOl[46mk[47mNMMMMMN[44mo[46m0[47mWW[44mc[40m..[47m .,[46mcdO[47mXWM[46mK[44m,,;:lX[47mMMMMMMMM[40m
+[47mMMMMMMMMMMM[44mKO::cl[42mo[41m.,;,,[47mdNW[44mo[46mlO[44m0:o[46mX[47mMW[46mO[44ml[47mN[40mM[47mMMM[40mM[44md[40m'.[47m.[46ml[44m;'[46mc[42ml:c:,[40m...[47m.,[44m;[47m.[44m.;;;x[47mMMMMMMM[40m
+[47mMMMMMMMMMMM[40mM[44mkloo[42mk[43mx[40m.;[46mlO[47mW[40mM[47mMN[46m0l[47m'-.NN[46md[47m.--'[46mX[47m-MMN-[43mKXx[40m;[47m.[44m',d;cc::c[46mdlc:[42m:Ok[44mooox[46mN[47mMMMMM[40m
+[47mMMWWWWMMMMM[46mN[44mool[42mk[43mXK[42m;[46mX[47mMN[46mkc[47m.[40m.[47m-[40m+-----------------+[43mXX[46m;[44m::[40m0[47mKMMMMK[44mOOOkxdlllllo0[47mMMMM[40m
+[47mMMMMMMMMMMM[44mxoc[42md[43mXK:[44m:[46m:[47m..[44m..[42mx[43mX[42m0[40m|  START THE GAME |[42mcO[46m:[44m;c[47m-MMMMMMMMMMMMMMM[44mK0kxO[47m-MM[40m
+[47mMMMMMMMMM[40mM[44m0l::[42md[44mc;.':ll,;[46mo[44mc:[40m|                 |[44ml;',:[40mX[47mMMMMMMMMMMMMMMMMMMMMMMM[40m
+[47mMMMMMMMMM[46mN[44ml,;::cdO[47mMM[44mx;;:oO[47mM[40m|   (Y/N)         |[47mMM[44mx::[47mMMMMMMMMMMMMMMMMMMMMMMMM[40m
+[47mMMMMMMMMM[44mo;okK[47mMMMMMM[44mOl0[47mMMMM[40m+-----------------+[47mWMMMMMMMMMMMMMMMMMMMMMMMMMMMM[40m
+[47mMMMMMMMMWMMMMMMMMMMMM[44m1[47mMMMMMMMMMM[44mxcll,l[47mMMMMMMMMMMMMMMMMMMMMMMM---MMMMMMMMM--[40m
+[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM[44m0oolX[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM[40m
+[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM[46mK[44mo0[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMM[40mChi Chun[47mM[40m
+[47mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM[44mK[47mWMMMMMMMMMWWMMMMMMMMM-MMMMMMMMMMMMMMMMM[40m

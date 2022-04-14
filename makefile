@@ -24,6 +24,7 @@ INFO := --info sizes --info totals --info unused --info veneers
 #--list ".\TEST.map" 
 #-o "TEST.axf" 
 
+OUTPUT_DIR = build
 TARGET = ./build/main 
 OBJMAP := .\output\*.map
 OBJHTM := .\output\*.htm
@@ -40,7 +41,7 @@ BUILD_OBJS_TARGET= $(foreach n, $(OBJS),build\$(n))
 ###########################################
 #test_shuffle
 ###########################################
-TEST_NAME = test_enemy_select_number
+TEST_NAME = test_file
 TEST_TARGET1 = .\build\test\$(TEST_NAME)
 #OBJS_TEST_TARGET1 = deps\swap\swap.o \
        deps\divide\divide.o \
@@ -52,19 +53,21 @@ TEST_TARGET1 = .\build\test\$(TEST_NAME)
        test\$(TEST_NAME).o
 
 OBJS_TEST_TARGET1 = deps\swap\swap.o \
+       .\deps\read_file\read_file.o \
        deps\divide\divide.o \
+       .\deps\cursor\cursor_relative_move.o .\deps\cursor\cursor_store.o .\deps\cursor\cursor_restore.o\
        deps\random\rand.o \
        deps\printf\printf_dec.o deps\printf\printf_hex.o \
        deps\1darray\init_1dArray.o deps\1darray\set_1dArray.o deps\1darray\set_order_1dArray.o deps\1darray\set_all_1dArray.o deps\1darray\get_1dArray.o \
        deps\2darray\init_2dArray.o deps\2darray\set_2dArray.o deps\2darray\get_2dArray.o \
-       lib\bingo_extract_not_selected_num.o lib\bingo_enemy_select_number.o\
+       lib\bingo_extract_not_selected_num.o lib\bingo_enemy_select_number.o lib\ui\ui_draw_number.o\
        test\$(TEST_NAME).o
 
-BUILD_OBJS_TEST_TARGET1= $(foreach n, $(OBJS_TEST_TARGET1),build\$(n))
-
+#BUILD_OBJS_TEST_TARGET1= $(foreach n, $(OBJS_TEST_TARGET1),build\$(n))
+BUILD_OBJS_TEST_TARGET1= $(addprefix $(OUTPUT_DIR)/, $(OBJS_TEST_TARGET1))
 
 #all : main $(TEST_NAME)
-all : $(TEST_NAME)
+all : $(OUTPUT_DIR)/test/$(TEST_NAME)
 #INC += -I.\system\delay
 #INC += -I.\system\sys
 #INC += -I.\system\usart
@@ -82,14 +85,14 @@ main: $(OBJS)
 #armlink ../hello-1.o -Output $@
 	$(ARMLINK) $(LINKFLAGS)  $(BUILD_OBJS_TARGET) -Output $(TARGET)
 
-$(TEST_NAME): $(OBJS_TEST_TARGET1) 
+$(OUTPUT_DIR)/test/$(TEST_NAME): $(BUILD_OBJS_TEST_TARGET1) 
 #armlink ../hello-1.o -Output $@
-	$(ARMLINK) $(LINKFLAGS) $(BUILD_OBJS_TEST_TARGET1) -Output $(TEST_TARGET1)
+	$(ARMLINK) $(LINKFLAGS) $^ -Output $@
 
-%.o: %.s
+$(OUTPUT_DIR)/%.o: %.s
 	
-	@if not exist build\$(@D) mkdir build\$(@D)
-	$(ARMASM) $(ASMFLAGS) $(INC) $< -o .\build\$@ 	
+	@if not exist "$(@D)" mkdir "$(@D)"
+	$(ARMASM) $(ASMFLAGS) $(INC) $< -o $@ 	
 	
 
 

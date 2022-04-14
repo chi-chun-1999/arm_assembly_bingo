@@ -10,7 +10,6 @@ read_only  EQU 1
 
 ARRAY_LENGTH EQU 25
 
-	ENTRY 	; mark first instruction
 	IMPORT 	bingo_init_board
 	IMPORT 	init_2dArray
 	IMPORT 	get_2dArray
@@ -22,6 +21,7 @@ ARRAY_LENGTH EQU 25
 	IMPORT 	tbingo_set_backslash_minus
 	IMPORT 	bingo_detect_line
 	IMPORT 	bingo_detect_backslash
+	ENTRY 	; mark first instruction
 
 Main
 	MOV 	fp,sp

@@ -1,2 +1,2 @@
-set file_name=test/test_enemy_select_number
+set file_name=test/test_file
 armsd ./build/%file_name%
