@@ -30,14 +30,14 @@ Main
 	BL 	init_2dArray
 
 	MOV 	r0, #0 
-	MOV 	r1, #25
-	BL 	init_1dArray
-
-	MOV 	r0, #0 
 	MOV 	r1, #5
 	MOV 	r2, #5
 	BL 	init_2dArray
 
+	MOV 	r0, #0 
+	MOV 	r1, #25
+	BL 	init_1dArray
+	
 	LDR 	r0, =clear
 	SWI 	&2
 

@@ -13,11 +13,10 @@ read_only  EQU 1
 	IMPORT 	ui_draw_circle
 	IMPORT 	ui_draw_number
 	IMPORT 	bingo_init_board
-	IMPORT 	init_1dArray
 	IMPORT 	init_2dArray
+	IMPORT 	init_1dArray
 	IMPORT 	set_order_1dArray
 	IMPORT 	c_bingo_circle
-	IMPORT 	c_get_select_number
 
 	ENTRY 	; mark first instruction
 
@@ -31,30 +30,32 @@ Main
 	BL 	init_2dArray
 
 	MOV 	r0, #0 
+	MOV 	r1, #25
+	BL 	init_1dArray
+
+	MOV 	r0, #0 
 	MOV 	r1, #5
 	MOV 	r2, #5
 	BL 	init_2dArray
 
-	MOV 	r0, #0 
-	MOV 	r1, #25
-	BL 	init_1dArray
-
 	LDR 	r0, =clear
 	SWI 	&2
 
+
 	;start game
-	;LDR 	r0, =filename
-	;MOV 	r1, sp	
-	;LDR 	r2, 	=&00013e1
-	;BL 	read_file
+	LDR 	r0, =filename
+	MOV 	r1, sp	
+	LDR 	r2, 	=&00013e1
+	BL 	read_file
 	;LDR 	r0, =String1
 	;SWI 	&2
 	;LDR 	r0, =shine
 	;SWI 	&2
 	;SWI 	&4
-
 	LDR 	r0, =clear
 	SWI 	&2
+
+
 
 	LDR 	r0, =filename2
 	MOV 	r1, sp	
@@ -71,27 +72,18 @@ Main
 	MOV 	r2, #1
 	BL 	set_order_1dArray
 
+
 	SUB 	r0, fp, #100
 	SUB 	r1, fp, #200
 	BL 	ui_draw_all_board
 
-	BL 	c_get_select_number
 
-
-	MOV 	r3, r0
 	SUB 	r0, fp, #100
 	SUB 	r1, fp, #200
 	SUB 	r2, fp, #300
+	MOV 	r3, #6
 	BL 	c_bingo_circle
 
-	BL 	c_get_select_number
-
-
-	MOV 	r3, r0
-	SUB 	r0, fp, #100
-	SUB 	r1, fp, #200
-	SUB 	r2, fp, #300
-	BL 	c_bingo_circle
 	
 	SWI 	SWI_Exit
 
@@ -108,4 +100,3 @@ restore = "\033[u",0
 set_color = "\033[36;47m\0"
 String = "",&0a,&0d
 	END
-

@@ -25,3 +25,6 @@
 [submodule "deps/scanf"]
 	path = deps/scanf
 	url = git@gitlab.ical.tw:arm_assembly/base/scanf.git
+[submodule "deps/sleep"]
+	path = deps/sleep
+	url = git@gitlab.ical.tw:arm_assembly/base/sleep.git

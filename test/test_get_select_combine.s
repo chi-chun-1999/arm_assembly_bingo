@@ -1,3 +1,12 @@
+
+;***************************
+;local variable
+;
+; fp-100: int my_board[5][5]
+; fp-200: int enemy_board[5][5]
+; fp-300: int select_board[25]
+;
+
 	AREA  Program,CODE, READONLY ; name this block of code
 SWI_Exit EQU 0x11 ; tidy finish
 SWI_Clock EQU 0x61
@@ -10,14 +19,14 @@ read_only  EQU 1
 
 	IMPORT 	read_file
 	IMPORT 	ui_draw_all_board
-	IMPORT 	ui_draw_circle
-	IMPORT 	ui_draw_number
 	IMPORT 	bingo_init_board
 	IMPORT 	init_1dArray
 	IMPORT 	init_2dArray
 	IMPORT 	set_order_1dArray
 	IMPORT 	c_bingo_circle
 	IMPORT 	c_get_select_number
+	IMPORT 	c_enemy_select_number
+	IMPORT 	bingo_enemy_select_number
 
 	ENTRY 	; mark first instruction
 
@@ -74,9 +83,9 @@ Main
 	SUB 	r0, fp, #100
 	SUB 	r1, fp, #200
 	BL 	ui_draw_all_board
-
+	
+	;------user select-----
 	BL 	c_get_select_number
-
 
 	MOV 	r3, r0
 	SUB 	r0, fp, #100
@@ -84,14 +93,26 @@ Main
 	SUB 	r2, fp, #300
 	BL 	c_bingo_circle
 
-	BL 	c_get_select_number
 
+	;------enemy select-----
+	SUB 	r0, fp, #300
+	BL 	c_enemy_select_number
 
 	MOV 	r3, r0
 	SUB 	r0, fp, #100
 	SUB 	r1, fp, #200
 	SUB 	r2, fp, #300
 	BL 	c_bingo_circle
+
+	;------user select-----
+	BL 	c_get_select_number
+
+	MOV 	r3, r0
+	SUB 	r0, fp, #100
+	SUB 	r1, fp, #200
+	SUB 	r2, fp, #300
+	BL 	c_bingo_circle
+
 	
 	SWI 	SWI_Exit
 
@@ -108,4 +129,5 @@ restore = "\033[u",0
 set_color = "\033[36;47m\0"
 String = "",&0a,&0d
 	END
+
 
