@@ -68,6 +68,7 @@ bingo_init_board
 
 	SUB 	r0, fp, #100
 	MOV 	r1, #ARRAY_LENGTH
+	MOV 	r2, r4
 	BL 	bingo_shuffle_1darray
 
 

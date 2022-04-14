@@ -9,40 +9,65 @@ write_only EQU 4 ; mode 4 = open to write
 read_only  EQU 1
 
 	IMPORT 	read_file
-	IMPORT 	ui_draw_number
+	IMPORT 	ui_draw_board
+	IMPORT 	bingo_init_board
+	IMPORT 	init_2dArray
 
 	ENTRY 	; mark first instruction
 
 Main
 
+	MOV 	fp, sp
+
+	MOV 	r0, #0 
+	MOV 	r1, #5
+	MOV 	r2, #5
+	BL 	init_2dArray
+
+	MOV 	r0, #0 
+	MOV 	r1, #5
+	MOV 	r2, #5
+	BL 	init_2dArray
+
 	LDR 	r0, =clear
 	SWI 	&2
 
+
+	;start game
 	LDR 	r0, =filename
 	MOV 	r1, sp	
 	LDR 	r2, 	=&00013e1
 	BL 	read_file
-
-	LDR 	r0, =String1
-	SWI 	&2
-	LDR 	r0, =shine
-	SWI 	&2
-	SWI 	&4
-
+	;LDR 	r0, =String1
+	;SWI 	&2
+	;LDR 	r0, =shine
+	;SWI 	&2
+	;SWI 	&4
 	LDR 	r0, =clear
 	SWI 	&2
+
 
 
 	LDR 	r0, =filename2
 	MOV 	r1, sp	
 	LDR 	r2, 	=&0000b52
 	BL 	read_file
-	SWI 	&4
 
-	MOV 	r0, #14
-	MOV 	r1, #5
-	MOV 	r2, #14
-	BL 	ui_draw_number
+	SUB 	r0, fp, #100
+	BL 	bingo_init_board
+	SUB 	r0, fp, #200
+	BL 	bingo_init_board
+
+	SUB 	r0, fp, #100
+	MOV 	r1, #11
+	MOV 	r2, #5
+	BL 	ui_draw_board
+
+	SUB 	r0, fp, #200
+	MOV 	r1, #48
+	MOV 	r2, #5
+	BL 	ui_draw_board
+
 	
 	SWI 	SWI_Exit
 

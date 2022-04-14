@@ -17,12 +17,14 @@
 	IMPORT 	__rt_udiv
 	IMPORT 	rand
 	IMPORT 	swap
+	IMPORT 	printf_dec
 	EXPORT 	bingo_shuffle_1darray
 
 bingo_shuffle_1darray
 
 	STMFD 	sp!,{r1-r8,LR}
 
+	MOV 	r8, r2
 	MOV 	r2, r0 	;r2: address of 1darray
 
 	MOV 	r3, r1 	;r3: length
@@ -36,6 +38,7 @@ ForLoop
 	BGE 	EndFunc
 
 	;int r = rand()%(25-i)+i
+	MOV 	r0, r8
 	BL 	rand 	;r0 = rand()
 	SUB 	r1, r3, r4
 	BL 	__rt_udiv 	;r1 = rand()%(length-i)
