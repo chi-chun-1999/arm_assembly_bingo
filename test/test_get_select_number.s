@@ -68,17 +68,19 @@ Main
 	BL 	c_get_select_number
 
 
-	MOV 	r2, r0
+	MOV 	r3, r0
 	SUB 	r0, fp, #100
 	SUB 	r1, fp, #200
+	SUB 	r2, fp, #300
 	BL 	c_bingo_circle
 
 	BL 	c_get_select_number
 
 
-	MOV 	r2, r0
+	MOV 	r3, r0
 	SUB 	r0, fp, #100
 	SUB 	r1, fp, #200
+	SUB 	r2, fp, #300
 	BL 	c_bingo_circle
 	
 	SWI 	SWI_Exit

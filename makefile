@@ -41,7 +41,7 @@ BUILD_OBJS_TARGET= $(foreach n, $(OBJS),build\$(n))
 ###########################################
 #test_shuffle
 ###########################################
-TEST_NAME = test_draw_circle
+TEST_NAME = test_get_select_number
 TEST_TARGET1 = .\build\test\$(TEST_NAME)
 #OBJS_TEST_TARGET1 = deps\swap\swap.o \
        deps\divide\divide.o \

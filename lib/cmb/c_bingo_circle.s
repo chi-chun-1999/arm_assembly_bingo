@@ -1,7 +1,7 @@
 
 ;==============================================
 ;
-; ui_draw_all_board(int &myboard[0][0],int &enemyboard[0][0],int &select_board[0] int detect_num)
+; c_bingo_circle(int &myboard[0][0],int &enemyboard[0][0],int &select_board[0] int detect_num)
 ;
 ; r0: &myboard[0][0]
 ; r1: &enemyboard[0][0]
