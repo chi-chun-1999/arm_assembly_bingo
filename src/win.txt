@@ -1,0 +1,30 @@
+[0m[47m                                                                           [40m
+[47m                                                                           [40m
+[47m                                                                           [40m
+[47m                           .             .                                 [40m
+[47m                           [44mdlx[47m  '       [44mdxoo0[47md                             [40m
+[47m                          [44mdllllldk[47m   [44mxdooooodO[47mk                            [40m
+[47m              [44mkk[47m         [44molllllldk[43m:;;:[44mkxooddddk[47m0..,;c[44mldkO0[47m                 [40m
+[47m             .[44mxcccllododlllllllok[43m''''.:[44m0ddddddxxkxkkkkkkkX[47m    [43mllcc[47m         [40m
+[47m               [44mcccccclllllllloook[43moc:ld[44mkdxk[43moool[44mkkxxk[43mo,,,,l[47mM    [41m,,,,[47m         [40m
+[47m               [44mxccldkkdlllx[43mxo[44mkkkxxkk[43mdl[44mkdk[43ml'''',x[44m0xkk[43m,,[41m,,[43mc[47mM    [41m,,,,[47m         [40m
+[47m        . [43m.',[47m  [44mOlk[43mc;,,[44mkoloO[43m:[41m',,,[44mkk[43m''''[44mkdx[43mo''''',l[44mKkk[41m,,,,:[47mM' .[43mo[41m''':[47m         [40m
+[47m       [43ml;....:[44m:ld[43md,,,,;[44mkkkk[41m,',,;[44mkk[43m''',o[44mkx[43mx',,'x,,:[44mkk[41m;,,,;[47mW[44mk[47mcl[43mo[41m'''[43ml[47m         [40m
+[47m       [43md,'''',[44mklk[43ml,,;[41m,,[43mc[44mOkk[41m,,,,d[44mkk[43m,,,,c[44mOxk[43m,,,,[44mkk[41m;,,[44mk[43md[41m,,,,[47m [44mOOX[41mx;;;[47m          [40m
+[47m       .[43md,',,,:[44mkk[43mc[41m,,[43mxc[41m,,[43mo[44mkk[41m,,,,[44mkkk[43m,,[41m,,,[44m0xk[43m,,[41m,,[43ml[44mKk[41m:,,l,,;;[47m [44m0OKk[41mo:c[47m          [40m
+[47m        .[43mx,,,,,[44mkk[43m:[41m,'[44mkk[41m,,,[44mkk[41m,,;:[44m0kk[43m....[41m.[44mklk[41m,,,,;[44mkOk[41ml,,;',;[47m [44mKX[47mN[41mxdO[47m           [40m
+[47m         .[43md,[41m,,,;[44mk[41m,,,[44mkk[41md,,;x;;;d[44mOxK[41m,,,,,[43md[44mdk[41m,,,,,[44mkOOK[41md;;;;;[47m WM[41ml;;;K[47mc         [40m
+[47m           [43mx[41m,,,,l,,,[44mkkk[41mc;;;;;;[44mkxxK[41m;,;;;d[44mOK[41m:,,,,[44mk0OOK[41mkdoolK[47mk0[41md;:c[47mK..        [40m
+[47m          [44mdk[43mx[41m,,,,,,,[44mkkkk[41m;;;;;c[44mKxxK[41mc::::o[44mKK[43mx[41mx[44mkkkkkOOO0KKKX[47mW                 [40m
+[47m         [44m00xk[43mx[41m,,,,;;[44mkkdK[41mk;cloO[44m0xxkkkkkkNKOK0OkxOOOO000000W[47m                 [40m
+[47m        ....'c [41mkxxxx[47mW[44mkdkkkkk0OxxkkkkkkkkkOOOOOOOO00000000N[47m                 [40m
+[47m            , :llldKN[44mxxxkxxxxxkkkkkkkkkOOOOOO0XXXXKKKKKKKX[47m                 [40m
+[47m              ;.  ;oO[44mxxxxxxxkkk0KOkkOxOOOOOO0[47mW                             [40m
+[47m            .   ,;  ,[44mKxxxxkOK[47mNKOdk[44mXKOxOOOOO0[47mW0                             [40m
+[47m              .   '  o[44mOk0X[47mN0x  O0..dK[44mXK0O00[47mWX0                             [40m
+[47m                ..  .dKKdO,      o     0[44mNK[47mWO                               [40m
+[47m                   .   o   x,           Kk  od                             [40m
+[47m                     .   :   :,       k.  l;                               [40m
+[47m                           .        c   :.  ..   .                         [40m
+[47m                                  .   .                                    [40m
+[47m                                                                           [40m
